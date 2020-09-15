@@ -30,6 +30,11 @@
             <p>Experience</p>
             <p>Contact</p>
         </div>
+        <div class="hamburger">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="bottom"></div>
+        </div>
     </header>
     <!-- akhir header -->
 
@@ -131,5 +136,16 @@
     </div>
     <!-- akhir education -->
 </body>
+
+<script>
+    var menuBar = document.querySelector('.menu-bar');
+    var hamburger = document.querySelector('.hamburger');
+    var hamburgerColor = document.querySelector('.hamburger div');
+
+    hamburger.addEventListener("click", function() {
+        menuBar.classList.toggle("open");
+        hamburgerColor.classList.toggle("changeColor");
+    });
+</script>
 
 </html>
