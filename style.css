@@ -606,6 +606,13 @@ header .menu-bar p:hover {
 }
 
 @media screen and (max-width:444px) {
+    .bg-cover::before {
+        content: '';
+        display: block;
+        background-color: var(--primary-color);
+        height: 200px;
+        width: 100%;
+    }
     .cover {
         margin-top: 30px;
         margin-bottom: 50px;
