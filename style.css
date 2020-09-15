@@ -12,9 +12,23 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 h1,
 h2 {
     font-family: 'Poppins', sans-serif !important;
+    color: rgb(51, 51, 51);
+    font-size: 50px;
+    font-weight: 500;
+    font-size: 55px;
+}
+
+hr {
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 0;
 }
 
 p {
@@ -36,7 +50,7 @@ p {
     margin: auto;
     overflow: hidden;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -84,8 +98,6 @@ p {
 
 .cover aside hr {
     margin: 25px 0;
-    height: 3px;
-    background-color: var(--primary-color);
 }
 
 .cover aside ul {
@@ -133,9 +145,11 @@ p {
 }
 
 .cover aside .contact p {
+    display: flex;
+    align-items: center;
     font-weight: 300;
     font-size: 16px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .cover aside .contact img {
@@ -145,6 +159,81 @@ p {
 
 
 /* akhir cover */
+
+
+/* about */
+
+.about {
+    width: 80%;
+    min-height: 100vh;
+    margin: auto;
+    margin-bottom: 90px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.about .circle {
+    position: absolute;
+    background-color: rgba(118, 200, 255, 0.2);
+    width: 100vh;
+    height: 100vh;
+    border-radius: 50%;
+    left: -40%;
+    z-index: -1;
+}
+
+.about .plus {
+    opacity: 0.2;
+    position: absolute;
+    width: 30vh;
+    top: 5%;
+    left: 0%;
+    z-index: -1;
+}
+
+.about .plus img {
+    width: 100%;
+}
+
+.about aside {
+    width: 45%;
+}
+
+.about aside h1 {
+    margin-bottom: 20px;
+}
+
+.about aside p {
+    margin-bottom: 10px;
+}
+
+.about aside hr {
+    margin-top: 30px;
+}
+
+.about aside .slogan {
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--primary-color) !important;
+}
+
+.about .photo-profil {
+    max-width: 40vh;
+}
+
+.about .photo-profil img {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 5px solid var(--primary-color);
+    border-radius: 15px;
+}
+
+
+/* akhir about */
 
 
 /* deskripsi */
@@ -183,15 +272,16 @@ p {
 .deskripsi p {
     font-size: 16px;
     text-align: center;
-    max-width: 500px;
+    max-width: 520px;
     margin: 30px auto;
     color: white !important;
+    padding: 0 20px;
 }
 
 .deskripsi .seeking {
     position: absolute;
     top: -166px;
-    left: 50px;
+    left: 10%;
 }
 
 .deskripsi .grid-deskripsi ul img {
@@ -261,7 +351,7 @@ p {
 
 .unindra {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     position: relative;
     z-index: 1;
@@ -319,30 +409,12 @@ p {
     padding: 5px;
 }
 
-.unindra hr {
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 0;
-}
-
 .unindra h2 {
     margin: 0;
 }
 
 
 /* akhir education */
-
-
-/* bootcamp */
-
-.bootcamp {
-    width: 80%;
-    height: 100vh;
-    margin: auto;
-}
-
-
-/* akhir bootcamp */
 
 
 /* Responsive */
@@ -352,9 +424,6 @@ p {
         height: 100vh;
         max-width: 90%;
         position: relative;
-    }
-    .logo-gambar {
-        /* background-color: yellow; */
     }
     .cover aside h1 {
         font-size: 50px;
@@ -368,7 +437,7 @@ p {
         margin: 20px 0;
     }
     .deskripsi .seeking {
-        left: 0;
+        left: 5%;
         top: -147px;
         width: 30vh;
     }
@@ -384,6 +453,29 @@ p {
     }
     .unindra .gambar ul img {
         width: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cover {
+        margin-bottom: 50px;
+    }
+    .about {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .about aside {
+        width: 80%;
+        margin-top: 15%;
+        margin: auto;
+    }
+    .about .photo-profil {
+        margin: auto;
+        max-width: 25vh;
+        margin-top: -30px;
     }
 }
 
@@ -422,8 +514,10 @@ p {
     .cover aside p {
         font-size: 18px;
     }
+    .about .photo-profil {
+        margin-top: 0px;
+    }
     .deskripsi .seeking {
-        left: 0;
         top: -127px;
         width: 150px;
     }
@@ -435,6 +529,7 @@ p {
 @media screen and (max-width:444px) {
     .cover {
         margin-top: 30px;
+        margin-bottom: 50px;
         flex-direction: column;
         justify-content: center;
         justify-content: flex-start;
@@ -455,6 +550,22 @@ p {
     .cover aside .contact p {
         font-size: 12px;
     }
+    .about aside h1 {
+        font-size: 40px;
+    }
+    .about aside p {
+        font-size: 12px;
+    }
+    .about .photo-profil {
+        margin-top: -50px;
+    }
+    .deskripsi {
+        margin-bottom: 50px;
+        min-height: 100vh;
+    }
+    .deskripsi .grid-deskripsi {
+        min-height: 450px;
+    }
     .deskripsi h1 {
         font-size: 40px;
     }
@@ -462,12 +573,12 @@ p {
         font-size: 15px;
     }
     .deskripsi .seeking {
-        left: 0;
-        top: -127px;
-        width: 150px;
+        top: -110px;
+        width: 130px;
     }
     .education {
         width: 90%;
+        margin-top: -100px;
     }
     .education .unindra h1 {
         font-size: 30px;
