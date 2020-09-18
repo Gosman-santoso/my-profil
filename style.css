@@ -6,6 +6,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
   margin: 0;
@@ -80,6 +84,7 @@ header .menu-bar {
           justify-content: space-between;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+  list-style: none;
 }
 
 header .menu-bar p {
@@ -171,7 +176,8 @@ header .hamburger {
   height: 40px;
 }
 
-.cover aside h2 {
+.cover aside button {
+  width: 100%;
   background-color: #76c8ff;
   padding: 10px 15px;
   border-radius: 15px;
@@ -189,7 +195,7 @@ header .hamburger {
   font-family: 'Poppins', sans-serif;
 }
 
-.cover aside h2:hover {
+.cover aside button:hover {
   background: white;
   color: #76c8ff;
   -webkit-box-shadow: 0 0 15px #76c8ff;
