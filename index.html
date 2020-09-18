@@ -26,9 +26,9 @@
             <img src="img/ice-bear-2.png" alt="">
         </aside>
         <div class="menu-bar">
-            <p>About</p>
-            <p>Experience</p>
-            <p>Contact</p>
+            <p class="link"><a href="#about">About</a></p>
+            <p class="link"><a href="#experience">Experience</a></p>
+            <p class="link"><a href="#contact">Contact</a></p>
         </div>
         <div class="hamburger">
             <div class="top"></div>
@@ -135,17 +135,35 @@
         </div>
     </div>
     <!-- akhir education -->
+
+
+    <!-- footer -->
+
+    <footer>
+        <button>"let's build something great together."</button>
+        <p>&copy;Copyright 2020 Gosman Santoso</p>
+    </footer>
+
+    <!-- akhir footer -->
 </body>
 
 <script>
     var menuBar = document.querySelector('.menu-bar');
     var hamburger = document.querySelector('.hamburger');
     var hamburgerColor = document.querySelector('.hamburger div');
+    var buttonLink = document.querySelectorAll('.link');
 
     hamburger.addEventListener("click", function() {
         menuBar.classList.toggle("open");
         hamburgerColor.classList.toggle("changeColor");
     });
+
+    for (var i = 0; i < 4; i++) {
+        buttonLink.addEventListener('click', function() {
+            hamburger.classList.remove('changeColor');
+            menu.classList.remove('open');
+        });
+    }
 </script>
 
 </html>
