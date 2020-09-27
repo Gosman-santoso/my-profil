@@ -42,6 +42,76 @@ a {
   text-decoration: none;
 }
 
+.screen,
+.screen-1,
+.screen-2 {
+  position: fixed;
+  top: -10px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+  opacity: 1;
+}
+
+.screen {
+  bottom: -60%;
+  background-color: #76c8ff;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  z-index: 102;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.screen img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 48%;
+  position: relative;
+  opacity: 1;
+}
+
+.screen-1 {
+  right: -40%;
+  background-color: #82dcff;
+  border-top-right-radius: 40%;
+  border-bottom-right-radius: 40%;
+  z-index: 101;
+}
+
+.screen-2 {
+  left: -40%;
+  background-color: #ccf4ff;
+  border-top-left-radius: 40%;
+  border-bottom-left-radius: 40%;
+  z-index: 100;
+}
+
+.screen.screen-open {
+  bottom: 100%;
+  opacity: 0.8;
+}
+
+.screen-1.screen-open {
+  right: 100%;
+  opacity: 0.8;
+}
+
+.screen-2.screen-open {
+  left: 100%;
+  opacity: 0.8;
+}
+
 header {
   width: 80%;
   height: 35px;
@@ -117,6 +187,10 @@ header .hamburger {
   width: 100%;
 }
 
+.cover.open {
+  opacity: 1;
+}
+
 .cover {
   max-width: 80%;
   height: 100vh;
@@ -133,6 +207,11 @@ header .hamburger {
       -ms-flex-align: center;
           align-items: center;
   padding: 0 10px;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transition-delay: 2s;
+          transition-delay: 2s;
 }
 
 .cover aside h1 {
@@ -153,27 +232,6 @@ header .hamburger {
 
 .cover aside hr {
   margin: 25px 0;
-}
-
-.cover aside ul {
-  list-style: none;
-  font-size: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.cover aside ul li {
-  margin-left: 10px;
-  margin-bottom: 6px;
-  color: dimgray;
-}
-
-.cover aside ul li img {
-  width: 40px;
-  height: 40px;
 }
 
 .cover aside button {
@@ -226,8 +284,14 @@ header .hamburger {
 
 .logo-gambar {
   position: relative;
-  min-width: 50vh;
+  max-width: 40vh;
   padding-left: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .logo-gambar .bg-gambar {
@@ -247,6 +311,9 @@ header .hamburger {
   border: 5px solid whitesmoke;
   position: relative;
   z-index: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-right: 10px;
 }
 
 .about {
@@ -289,8 +356,19 @@ header .hamburger {
   width: 100%;
 }
 
+.about .appear-effect {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  opacity: 1 !important;
+}
+
 .about aside {
   width: 45%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
 }
 
 .about aside h1 {
@@ -316,6 +394,11 @@ header .hamburger {
 
 .about .photo-profil {
   max-width: 40vh;
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  border: 5px solid #76c8ff;
+  border-radius: 15px;
 }
 
 .about .photo-profil img {
@@ -323,8 +406,30 @@ header .hamburger {
   padding: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 5px solid #76c8ff;
-  border-radius: 15px;
+  -webkit-animation: move 5s linear infinite;
+          animation: move 5s linear infinite;
+}
+
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
 }
 
 .deskripsi {
@@ -557,6 +662,7 @@ footer {
 }
 
 footer button {
+  margin: 20px 0;
   border: 5px solid white;
   padding: 8px 10px;
   color: white;
@@ -577,6 +683,7 @@ footer p {
   font-style: italic;
   color: dimgray;
   bottom: 2px;
+  font-size: 13px;
 }
 
 footer ul {
@@ -598,6 +705,32 @@ footer ul li {
 footer ul li img {
   width: 40px;
   height: 40px;
+}
+
+footer form {
+  margin: 20px 0;
+  height: 0px;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+footer form input {
+  width: 300px;
+  height: 30px;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+footer form button {
+  font-size: 15px;
+  border: 3px solid white;
+  padding: 2px 5px;
+  margin-top: 0;
+}
+
+footer form.open {
+  height: 120px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -674,6 +807,9 @@ footer ul li img {
     margin: auto;
     max-width: 25vh;
     margin-top: -30px;
+  }
+  footer ul {
+    width: 60%;
   }
 }
 
@@ -803,7 +939,6 @@ footer ul li img {
   }
   .logo-gambar {
     min-width: 0;
-    height: 200px;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
@@ -831,7 +966,6 @@ footer ul li img {
 @media screen and (max-width: 444px) {
   .cover aside h1 {
     font-size: 30px;
-    margin-top: -50px;
     padding: 0;
   }
   .cover aside p {
@@ -843,7 +977,7 @@ footer ul li img {
     padding: 5px 8px;
   }
   .cover aside .contact p {
-    font-size: 12px;
+    font-size: 13px;
   }
   .logo-gambar img {
     width: 150px;
@@ -858,7 +992,7 @@ footer ul li img {
     font-size: 40px;
   }
   .about aside p {
-    font-size: 14px;
+    font-size: 13px;
   }
   .about .photo-profil {
     margin-top: -30px;
@@ -871,7 +1005,7 @@ footer ul li img {
     font-size: 40px;
   }
   .deskripsi p {
-    font-size: 15px;
+    font-size: 14px;
   }
   .deskripsi .seeking {
     top: -110px;
@@ -899,7 +1033,7 @@ footer ul li img {
 
 @media screen and (max-width: 328px) {
   .cover {
-    margin-top: -30px;
+    margin-top: -10px;
   }
   .cover aside h1 {
     font-size: 26px;
@@ -911,6 +1045,9 @@ footer ul li img {
   footer p {
     margin-top: 20px;
     font-size: 13px;
+  }
+  footer form input {
+    width: 225px;
   }
 }
 /*# sourceMappingURL=style.css.map */

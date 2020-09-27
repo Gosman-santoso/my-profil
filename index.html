@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="home">
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,19 @@
     <title>Gosman Santoso</title>
 </head>
 
-<body id="home">
+<body>
+
+    <!-- screen overflow -->
+
+    <div class="screen">
+        <img src="./img/ice running.gif" alt="">
+    </div>
+    <div class="screen-1">
+    </div>
+    <div class="screen-2">
+    </div>
+
+    <!-- akhir screen overflow -->
 
     <!-- backgrund cover -->
     <div class="bg-cover">
@@ -51,25 +63,14 @@
                     <p><img src='./img/sosmed/icons8_github_50px.png' alt="" />github.com/Gosman-santoso</p>
                 </div>
                 <hr/>
-                <ul>
-                    <li>
-                        <a href="https://m.facebook.com/gosman.santoso?ref=bookmarks" target="blank"><img src='./img/sosmed/icons8_Facebook_50px_1.png' alt="medsos" /></a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/gosman-santoso/" target="blank"><img src='./img/sosmed/icons8_linkedin_50px.png' alt="medsos" /></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/gosmansantoso/?hl=id" target="blank"><img src='./img/sosmed/icons8_instagram_50px.png' alt="medsos" /></a>
-                    </li>
-                    <li>
-                        <a href="https://wa.me/6289636549291?text=I'm%20interest%20with%20your%20portfolio" target="blank"><img src='./img/sosmed/icons8_whatsapp_50px.png' alt="medsos" /></a>
-                    </li>
-                </ul>
+
                 <button>i love Ice Bear &#10084;</button>
             </aside>
             <div class="logo-gambar">
-                <div class="bg-gambar"></div>
-                <img src='./img/ice-bear-1.jpg' alt="ice-bear" />
+                <!-- <div class="bg-gambar"></div> -->
+                <img class="img-slide" src='./img/ice-bear-1.jpg' alt="ice-bear" />
+                <!-- <img class="img-slide" src="./img/slide-photo/icebear4.jpeg" alt="">
+                <img class="img-slide" src="./img/slide-photo/icebear3.jpg" alt=""> -->
             </div>
         </div>
     </div>
@@ -128,8 +129,12 @@
             </aside>
             <div class="gambar ">
                 <ul>
-                    <li><img src='./img/sosmed/icons8_globe_50px.png' alt=" " /></li>
-                    <li><img src='./img/sosmed/icons8_Google_Maps_Old_50px.png' alt=" " /></li>
+                    <li>
+                        <a href="https://www.google.com/maps/place/Universitas+Indraprasta+(UNINDRA),+Kampus+A/@-6.303108,106.8505695,15z/data=!4m5!3m4!1s0x0:0xb712ed99f1e9c7da!8m2!3d-6.303108!4d106.8505695" target="blank"><img src='./img/sosmed/icons8_globe_50px.png' alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="https://unindra.ac.id/" target="blank"><img src='./img/sosmed/icons8_Google_Maps_Old_50px.png' alt="" /></a>
+                    </li>
                 </ul>
                 <img src='./img/education/unindra.jpg' alt=" " />
             </div>
@@ -155,31 +160,19 @@
                 <a href="https://wa.me/6289636549291?text=I'm%20interest%20with%20your%20portfolio" target="blank"><img src='./img/sosmed/icons8_whatsapp_50px.png' alt="medsos" /></a>
             </li>
         </ul>
-        <button>"let's build something great together."</button>
+        <button class="form-button">"let's build something great together."</button>
+
+        <form action="">
+            <input type="text" placeholder="Gmail" required class="gmail"><br>
+            <input type="text" placeholder="Message" required class="message"><br>
+            <button type="submit" class="submit">Send</button>
+        </form>
+
         <p>&copy;Copyright 2020 Gosman Santoso</p>
     </footer>
-
     <!-- akhir footer -->
 </body>
 
-<script>
-    var menuBar = document.querySelector('.menu-bar');
-    var hamburger = document.querySelector('.hamburger');
-    var hamburgerColor = document.querySelector('.hamburger div');
-    var buttonLink = document.querySelectorAll('.link');
-
-    hamburger.addEventListener("click", function() {
-        menuBar.classList.toggle("open");
-        hamburgerColor.classList.toggle("changeColor");
-    });
-
-    for (var i = 0; i < 4; i++) {
-        var link = document.getElementsByClassName('link')[i];
-        link.addEventListener('click', function() {
-            hamburgerColor.classList.remove('changeColor');
-            menuBar.classList.remove('open');
-        });
-    }
-</script>
+<script src="./script.js"></script>
 
 </html>

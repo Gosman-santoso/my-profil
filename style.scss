@@ -43,6 +43,69 @@ a {
     text-decoration: none;
 }
 
+.screen,
+.screen-1,
+.screen-2 {
+    position: fixed;
+    top: -10px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: 1s;
+    transition-delay: 1s;
+    opacity: 1;
+}
+
+.screen {
+    bottom: -60%;
+    background-color: $primary-color;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    z-index: 102;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-top: 48%;
+        position: relative;
+        opacity: 1;
+    }
+}
+
+.screen-1 {
+    right: -40%;
+    background-color: rgb(130, 220, 255);
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 40%;
+    z-index: 101;
+}
+
+.screen-2 {
+    left: -40%;
+    background-color: rgb(204, 244, 255);
+    border-top-left-radius: 40%;
+    border-bottom-left-radius: 40%;
+    z-index: 100;
+}
+
+.screen.screen-open {
+    bottom: 100%;
+    opacity: 0.8;
+}
+
+.screen-1.screen-open {
+    right: 100%;
+    opacity: 0.8;
+}
+
+.screen-2.screen-open {
+    left: 100%;
+    opacity: 0.8;
+}
+
 header {
     width: 80%;
     height: 35px;
@@ -98,6 +161,10 @@ header {
     }
 }
 
+.cover.open {
+    opacity: 1;
+}
+
 .cover {
     max-width: 80%;
     height: 100vh;
@@ -108,6 +175,9 @@ header {
     justify-content: space-evenly;
     align-items: center;
     padding: 0 10px;
+    opacity: 0;
+    transition: 1s;
+    transition-delay: 2s;
     aside {
         h1 {
             font-size: 55px;
@@ -125,21 +195,6 @@ header {
         }
         hr {
             margin: 25px 0;
-        }
-        ul {
-            list-style: none;
-            font-size: 20px;
-            display: flex;
-            justify-content: space-around;
-            li {
-                margin-left: 10px;
-                margin-bottom: 6px;
-                color: $primary-text-color;
-                img {
-                    width: 40px;
-                    height: 40px;
-                }
-            }
         }
         button {
             width: 100%;
@@ -182,8 +237,11 @@ header {
 
 .logo-gambar {
     position: relative;
-    min-width: 50vh;
+    max-width: 40vh;
     padding-left: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
     .bg-gambar {
         width: 37vh;
         height: 37vh;
@@ -200,7 +258,12 @@ header {
         border: 5px solid rgb(245, 245, 245);
         position: relative;
         z-index: 1;
+        transition: 0.5s;
+        margin-right: 10px;
     }
+    // img.slide {
+    //     transform: translateX(-105%);
+    // }
 }
 
 .about {
@@ -232,8 +295,16 @@ header {
             width: 100%;
         }
     }
+    // transition vanilla
+    .appear-effect {
+        transform: translateX(0%);
+        opacity: 1 !important;
+    }
     aside {
         width: 45%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: 0.8s;
         h1 {
             margin-bottom: 20px;
         }
@@ -254,13 +325,25 @@ header {
     }
     .photo-profil {
         max-width: 40vh;
+        opacity: 0;
+        transition: 0.8s;
+        border: 5px solid $primary-color;
+        border-radius: 15px;
         img {
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-            border: 5px solid $primary-color;
-            border-radius: 15px;
+            animation: move 5s linear infinite;
         }
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(8px);
     }
 }
 
@@ -429,6 +512,7 @@ footer {
     position: relative;
     padding: 20px;
     button {
+        margin: 20px 0;
         border: 5px solid white;
         padding: 8px 10px;
         color: white;
@@ -446,6 +530,7 @@ footer {
         font-style: italic;
         color: $primary-text-color;
         bottom: 2px;
+        font-size: 13px;
     }
     ul {
         opacity: 0.85;
@@ -461,6 +546,27 @@ footer {
                 height: 40px;
             }
         }
+    }
+    form {
+        margin: 20px 0;
+        height: 0px;
+        overflow: hidden;
+        transition: 0.5s;
+        input {
+            width: 300px;
+            height: 30px;
+            margin: 5px 0;
+            padding: 10px;
+        }
+        button {
+            font-size: 15px;
+            border: 3px solid white;
+            padding: 2px 5px;
+            margin-top: 0;
+        }
+    }
+    form.open {
+        height: 120px;
     }
 }
 
@@ -537,6 +643,11 @@ footer {
             margin: auto;
             max-width: 25vh;
             margin-top: -30px;
+        }
+    }
+    footer {
+        ul {
+            width: 60%;
         }
     }
 }
@@ -646,7 +757,6 @@ footer {
     }
     .logo-gambar {
         min-width: 0;
-        height: 200px;
         order: 1;
         margin-top: -13vh;
         img {
@@ -680,7 +790,6 @@ footer {
         aside {
             h1 {
                 font-size: 30px;
-                margin-top: -50px;
                 padding: 0;
             }
             p {
@@ -693,7 +802,7 @@ footer {
             }
             .contact {
                 p {
-                    font-size: 12px;
+                    font-size: 13px;
                 }
             }
         }
@@ -715,7 +824,7 @@ footer {
                 font-size: 40px;
             }
             p {
-                font-size: 14px;
+                font-size: 13px;
             }
         }
         .photo-profil {
@@ -729,7 +838,7 @@ footer {
             font-size: 40px;
         }
         p {
-            font-size: 15px;
+            font-size: 14px;
         }
         .seeking {
             top: -110px;
@@ -762,7 +871,7 @@ footer {
 
 @media screen and (max-width: 328px) {
     .cover {
-        margin-top: -30px;
+        margin-top: -10px;
         aside {
             h1 {
                 font-size: 26px;
@@ -777,6 +886,11 @@ footer {
         p {
             margin-top: 20px;
             font-size: 13px;
+        }
+        form {
+            input {
+                width: 225px;
+            }
         }
     }
 }
