@@ -58,7 +58,8 @@ a {
 }
 
 .screen {
-  bottom: -60%;
+  top: -20%;
+  bottom: -80%;
   background-color: #76c8ff;
   border-bottom-left-radius: 40%;
   border-bottom-right-radius: 40%;
